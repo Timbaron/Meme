@@ -1,8 +1,31 @@
-import React from 'react'
-import { Text } from 'react-native'
+import React, {useState} from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import { Appbar, Button, ToggleButton } from 'react-native-paper'
 
 export default function Home() {
+  const [type, setType] = useState('pictures');
   return (
-    <Text>Home</Text>
+    <>
+      <Appbar.Header>
+        {/* <Appbar.BackAction onPress={_goBack} /> */}
+        <Appbar.Content title="Meme Store" />
+      </Appbar.Header>
+      <View style={styles.button}>
+        <Button icon="image" mode="contained" onPress={() => setType('pictures')}>
+          image
+        </Button>
+        <Button icon="text" mode="contained" onPress={() => setType('text')}>
+          Text
+        </Button>        
+      </View>
+    </>
   )
 }
+
+const styles = StyleSheet.create({
+  button: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    margin: 10,
+  }
+})
