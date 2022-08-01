@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { Card } from 'react-native-paper'
 
 export default function ImageMeme() {
@@ -20,13 +20,19 @@ export default function ImageMeme() {
     ;
   return (
     <View>
-      <Card style={styles.memes}>
-        <SafeAreaView style={styles.container}>
-          <View>
-            <FlatList data={images} renderItem={renderItem} keyExtractor={item => item.id} />
-          </View>
-        </SafeAreaView>
-      </Card>
+      <SafeAreaView style={styles.container}>
+        <ScrollView style={styles.scrollView}>
+          {images.map(image =>
+          (
+            <Card style={styles.memes}>
+              <View>
+                <Card.Cover source={{ uri: image }} style={styles.meme} />
+              </View>
+            </Card>
+          )
+          )}
+        </ScrollView>
+      </SafeAreaView>
     </View>
   )
 }
@@ -40,5 +46,5 @@ const styles = StyleSheet.create({
   },
   meme: {
     marginBottom: 15,
-  }
+  },
 })
