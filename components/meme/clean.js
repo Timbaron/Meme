@@ -2,7 +2,7 @@ import React from 'react'
 import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { Card } from 'react-native-paper'
 
-export default function ImageMeme() {
+export default function CleanMeme() {
   // image urls in array
   const images = [
     'https://picsum.photos/700',
