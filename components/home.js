@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Appbar, Button, ToggleButton } from 'react-native-paper'
+import ImageMeme from './meme/image';
+import TextMeme from './meme/text';
 
 export default function Home() {
   const [type, setType] = useState('pictures');
@@ -18,6 +20,7 @@ export default function Home() {
           Text
         </Button>        
       </View>
+      {(type === 'pictures') ? <ImageMeme /> : <TextMeme />}
     </>
   )
 }
