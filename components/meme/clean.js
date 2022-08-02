@@ -1,6 +1,6 @@
 import React from 'react'
-import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
-import { Card } from 'react-native-paper'
+import { FlatList, SafeAreaView, ScrollView, StyleSheet, View } from 'react-native'
+import { Button, Card, Surface, Text } from 'react-native-paper'
 
 export default function CleanMeme() {
   // image urls in array
@@ -22,12 +22,19 @@ export default function CleanMeme() {
     <View>
       <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
-          {images.map(image =>
+          {images.map((image,index) =>
           (
             <Card style={styles.memes}>
               <View>
                 <Card.Cover source={{ uri: image }} style={styles.meme} />
               </View>
+              <Surface style={styles.surface} elevation={8}>
+                <Text variant="displayLarge">By: Koniblack</Text>
+                <Button icon="download" mode="contained" onPress={() => console.log('Why you wan download?')}>
+                  Download
+                </Button>
+                
+              </Surface>
             </Card>
           )
           )}
@@ -42,9 +49,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     marginLeft: 20,
     marginRight: 20,
-    borderRadius: 10,
+    marginBottom:10,
   },
   meme: {
-    marginBottom: 15,
+    borderRadius: 10,
+    marginBottom: 5,
+  },
+  surface: {
+    padding: 1,
+    height: 40,
+    // width: 80,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    margin: 10,
   },
 })
