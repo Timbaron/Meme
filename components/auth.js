@@ -4,7 +4,7 @@ import { Button } from 'react-native-paper'
 import Login from './auth/login'
 import Register from './auth/register'
 
-export default function Auth() {
+export default function Auth({ navigation }) {
     const [screen, setScreen] = useState('login')
     return (
         <>
@@ -16,7 +16,7 @@ export default function Auth() {
                     Register
                 </Button>
             </View>
-            {(screen === 'login') ? <Login /> : <Register />}
+            {(screen === 'login') ? <Login navigation={navigation} /> : <Register />}
         </>
     )
 }

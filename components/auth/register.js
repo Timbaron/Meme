@@ -1,6 +1,6 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
-import { Button, Text, TextInput } from 'react-native-paper'
+import { Alert, StyleSheet, View } from 'react-native'
+import { ActivityIndicator, Button, Text, TextInput, MD2Colors } from 'react-native-paper'
 
 export default function Register() {
     const [username, setUsername] = React.useState('');
@@ -8,6 +8,36 @@ export default function Register() {
     const [password, setPassword] = React.useState('');
     const [confirmpassword, setConfirmPassword] = React.useState('');
     const [passwordVisibible, setpasswordVisibible] = React.useState(true);
+    const [isLoading, setisLoading] = React.useState(false)
+
+    const resultHandler = (result) => {
+        if(result.errors !== undefined) {
+            Alert.alert(result.errors[0])
+        }
+        else{
+            Alert.alert('Registration Completed', 'Kindly login, If you like post boring stuffs, I go just block you.')
+        }
+    }
+
+    const submitHandler = async () => {
+        setisLoading(true)
+        try {
+            var requestOptions = {
+                method: 'POST',
+                redirect: 'follow'
+            };
+            // fatch api
+            await fetch(`https://memejokes.herokuapp.com/api/register?email=${email}&username=${username}&password=${password}&password_confirmation=${confirmpassword}`, requestOptions)
+                .then(response => response.text())
+                .then(result => resultHandler(JSON.parse(result)))
+                .catch(error => console.log('error', error));
+            // console.log('Pressed')
+            setisLoading(false)
+        } catch (error) {
+            console.log(error)
+            setisLoading(false)
+        }
+    }
     return (
         <View>
             <TextInput
@@ -16,7 +46,7 @@ export default function Register() {
                 placeholder="Type something"
                 right={<TextInput.Affix text="/100" />}
                 value={username}
-                onChangeText={username => setUsername(text)}
+                onChangeText={username => setUsername(username)}
                 style={styles.input}
             />
             <TextInput
@@ -25,7 +55,7 @@ export default function Register() {
                 placeholder="Type something"
                 right={<TextInput.Affix text="/100" />}
                 value={email}
-                onChangeText={email => setEmail(text)}
+                onChangeText={email => setEmail(email)}
                 style={styles.input}
             />
             <TextInput
@@ -47,8 +77,16 @@ export default function Register() {
                 style={styles.input}
             />
             {/* login botton */}
+            {/* show activityindicator if isloading */}
+            {(isLoading) && (
+                <>
+                    <ActivityIndicator size="large" />
+                    <Text style={styles.activityIndicator}>Attempting to Register...</Text>
+                </>
+            )}
+
             <View style={styles.button}>
-                <Button icon="login" mode="contained" onPress={() => console.log('Pressed')}>
+                <Button icon="login" mode="contained" onPress={submitHandler}>
                     Register
                 </Button>
             </View>
@@ -73,5 +111,10 @@ const styles = StyleSheet.create({
         margin: 10,
         width: 300,
         height: 70,
+    },
+    activityIndicator: {
+        margin: 10,
+        alignItems: 'center',
+        textAlign: 'center',
     }
 })
