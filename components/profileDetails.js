@@ -13,7 +13,6 @@ export default function Details({ token, setToken, setIsLoggedin, navigation}) {
     if (result.status === 'success') {
       setIsLoading(false)
       setUser(result.user)
-      console.log(result)
     }
   }
 
@@ -113,7 +112,6 @@ export default function Details({ token, setToken, setIsLoggedin, navigation}) {
             </Button>
           </View>
           <View style={styles.buttonContain}>
-
             <Button icon="upload" mode="contained" style={styles.buttonUPD} onPress={() => navigation.navigate('Upload')}>
               Upload meme
             </Button>
