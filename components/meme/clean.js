@@ -1,6 +1,7 @@
 import React from 'react'
 import { FlatList, SafeAreaView, ScrollView, StyleSheet, View } from 'react-native'
 import { Button, Card, Surface, Text } from 'react-native-paper'
+import ShareButton from '../share';
 
 export default function CleanMeme() {
   // image urls in array
@@ -17,22 +18,19 @@ export default function CleanMeme() {
     'https://picsum.photos/700'
   ];
   const renderItem = ({ item }) => <Card.Cover source={{ uri: item }} style={styles.meme} />
-    ;
   return (
     <View>
       <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
           {images.map((image,index) =>
           (
-            <Card style={styles.memes}>
+            <Card style={styles.memes} key={index}>
               <View>
                 <Card.Cover source={{ uri: image }} style={styles.meme} />
               </View>
               <Surface style={styles.surface} elevation={8}>
-                <Text variant="displayLarge">By: Koniblack</Text>
-                <Button icon="download" mode="contained" onPress={() => console.log('Why you wan download?')}>
-                  Download
-                </Button>
+                <Text variant="displayLarge">By: Koniblack </Text>
+                <ShareButton />
                 
               </Surface>
             </Card>
@@ -57,7 +55,7 @@ const styles = StyleSheet.create({
   },
   surface: {
     padding: 1,
-    height: 40,
+    height: 60,
     // width: 80,
     alignItems: 'center',
     justifyContent: 'center',
@@ -65,4 +63,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     margin: 10,
   },
+  button: { 
+    borderColor: "#000", 
+    borderWidth: 2,
+    width: 50,
+  }
 })
