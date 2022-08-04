@@ -34,7 +34,7 @@ export default function Profile({ navigation }) {
                 <Appbar.Content title="My Profile" />
             </Appbar.Header>
             <View style={styles.container}>
-                {(isloggedin && token !== undefined) ? <Details token={token} setToken={setToken} setIsLoggedin={setIsLoggedin} /> : <Auth navigation={navigation}/>}
+                {(isloggedin && token !== undefined) ? <Details token={token} setToken={setToken} setIsLoggedin={setIsLoggedin} navigation={navigation} /> : <Auth navigation={navigation}/>}
             </View>
         </>
 

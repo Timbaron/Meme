@@ -114,7 +114,7 @@ export default function Details({ token, setToken, setIsLoggedin, navigation}) {
           </View>
           <View style={styles.buttonContain}>
 
-            <Button icon="upload" mode="contained" style={styles.buttonUPD}>
+            <Button icon="upload" mode="contained" style={styles.buttonUPD} onPress={() => navigation.navigate('Upload')}>
               Upload meme
             </Button>
           </View>
