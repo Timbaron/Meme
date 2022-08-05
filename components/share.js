@@ -2,12 +2,12 @@ import React from 'react'
 import { StyleSheet, Text, View, Share } from 'react-native'
 import { Button } from 'react-native-paper';
 
-export default function ShareButton() {
+export default function ShareButton({url}) {
     const onShare = async () => {
         try {
             const result = await Share.share({
                 message:
-                  'Check out this meme i found on Meme Store!',
+                  `😂 🤣 😂 🤣 Check out this meme i found on Meme Store App 😂 🤣 😂 🤣 ! ${url}`,
             });
             if (result.action === Share.sharedAction) {
                 if (result.activityType) {
