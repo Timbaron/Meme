@@ -53,7 +53,7 @@ export default function CleanMeme() {
           </View>
           <Surface style={styles.surface} elevation={8}>
             <Text variant="displayLarge">Uploaded By: {item.owner.username}</Text>
-            <ShareButton url={item.meme_url} />
+            <ShareButton url={item.id} />
 
           </Surface>
         </Card>
