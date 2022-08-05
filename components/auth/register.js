@@ -1,6 +1,6 @@
 import React from 'react'
 import { Alert, StyleSheet, View } from 'react-native'
-import { ActivityIndicator, Button, Text, TextInput, MD2Colors } from 'react-native-paper'
+import { ActivityIndicator, Button, Text, TextInput } from 'react-native-paper'
 
 export default function Register() {
     const [username, setUsername] = React.useState('');
@@ -31,7 +31,6 @@ export default function Register() {
                 .then(response => response.text())
                 .then(result => resultHandler(JSON.parse(result)))
                 .catch(error => console.log('error', error));
-            // console.log('Pressed')
             setisLoading(false)
         } catch (error) {
             console.log(error)
@@ -76,8 +75,6 @@ export default function Register() {
                 onChangeText={confirmpassword => setConfirmPassword(confirmpassword)}
                 style={styles.input}
             />
-            {/* login botton */}
-            {/* show activityindicator if isloading */}
             {(isLoading) && (
                 <>
                     <ActivityIndicator size="large" />
@@ -97,7 +94,6 @@ export default function Register() {
 const styles = StyleSheet.create({
     input: {
         margin: 10,
-        // backgroundColor: 'red',
         width: 300,
         height: 50,
     },

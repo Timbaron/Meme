@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Share } from 'react-native'
+import { StyleSheet, Share } from 'react-native'
 import { Button } from 'react-native-paper';
 
 export default function ShareButton({id}) {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {StyleSheet, View } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Appbar, Text } from 'react-native-paper'
+import { Appbar} from 'react-native-paper'
 import Auth from './auth'
 import Details from './profileDetails'
 

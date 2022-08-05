@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
-import { FlatList, SafeAreaView, ScrollView, StyleSheet, View } from 'react-native'
+import { FlatList, SafeAreaView, StyleSheet, View } from 'react-native'
 import { ActivityIndicator, Button, Card, Surface, Text } from 'react-native-paper'
 import ShareButton from '../share';
 
 export default function CleanMeme() {
-  // image urls in array
   const [isLoading, setIsLoading] = React.useState(true)
   const [memes, setMemes] = React.useState([])
   const resultHandler = (result) => {
@@ -41,9 +40,6 @@ export default function CleanMeme() {
   useEffect(() => {
     _getmemes()
   }, [])
-  // setTimeout(() =>{
-  //   _getmemes()
-  // },30000)
   const renderMeme = ({ item }) => {
     return (
       <>
@@ -83,10 +79,6 @@ export default function CleanMeme() {
 
 const styles = StyleSheet.create({
   memes: {
-    // justifyContent: 'center',
-    // marginLeft: 20,
-    // marginRight: 20,
-    // marginBottom: 10,
     margin: 10,
   },
   meme: {
@@ -94,14 +86,10 @@ const styles = StyleSheet.create({
     margin: 20,
     height: 300,
     width: 300,
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    // backgroundColor: 'blue'
   },
   surface: {
     padding: 1,
     height: 60,
-    // width: 80,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',

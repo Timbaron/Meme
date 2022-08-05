@@ -9,11 +9,8 @@ export default function Home({navigation}) {
   return (
     <>
       <Appbar.Header>
-        {/* <Appbar.BackAction onPress={_goBack} /> */}
         <Appbar.Content title="🤣 😂Meme Store 😛 😜 " />
         <Appbar.Action icon="account" onPress={() => navigation.navigate('Profile')} />
-        {/* login button */}
-        {/* <Button icon="account" mode="outlined" onPress={() => console.log('Why you wan login?')} style={styles.button} /> */}
       </Appbar.Header>
       <View style={styles.button}>
         <Button mode="contained" onPress={() => setType('clean')}>

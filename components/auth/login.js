@@ -11,14 +11,11 @@ export default function Login({ navigation }) {
   const storeData = async (token) => {
     console.log(token)
     try {
-      // await AsyncStorage.setItem('token', token)
-      // await AsyncStorage.setItem('activeToken', result.token)
       AsyncStorage.setItem('token', result.token)
       global.token = token
       Alert.alert('Login Completed', 'Welcome back!')
       navigation.navigate('Profile')
     } catch (e) {
-      // saving error
       console.log(e)
     }
   }

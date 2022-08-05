@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { StyleSheet, View } from 'react-native'
 import { ActivityIndicator, Button, Text, TextInput } from 'react-native-paper'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -131,7 +131,6 @@ const styles = StyleSheet.create({
   },
   input: {
     margin: 10,
-    // backgroundColor: 'red',
     width: 300,
     height: 50,
   },
